@@ -39,7 +39,7 @@ class Hmvc {
     protected $remoteClient;
 
     /**
-     * Instance API.
+     * Instance Hmvc.
      *
      * @param Repository $config  $router
      * @param Router     $router
@@ -131,7 +131,7 @@ class Hmvc {
     }
 
     /**
-     * Invoke with remote uri.
+     * Invoke with remote request.
      *
      * @param  string $uri
      * @param  string $method

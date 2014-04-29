@@ -48,7 +48,7 @@ HMVC::put('user/1', array('title' => 'Changed'));
 HMVC::delete('user/1');
 
 // Internal request with domain route.
-HMVC::invoke('http://api.domain.com', 'post', array('param' => 1))
+HMVC::invoke('/someinternalpath', 'post', array('param' => 1))
 
 // You can make remote request without changing code also.
 HMVC::post('http://api.github.com', array('username' => 'teepluss'));
@@ -57,7 +57,7 @@ HMVC::post('http://api.github.com', array('username' => 'teepluss'));
 HMVC::invokeRemote('http://api.github.com', 'post', array('username' => 'teepluss'));
 
 // Get Guzzle to use other features.
-$guzzle = API::getRemoteClient();
+$guzzle = HMVC::getRemoteClient();
 ~~~
 >> Remote request using [Guzzle](http://guzzlephp.org/) as an adapter.
 
