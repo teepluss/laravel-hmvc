@@ -6,6 +6,7 @@ use Illuminate\Routing\Route;
 use Illuminate\Routing\Router;
 use Illuminate\Config\Repository;
 use Illuminate\Support\Facades\Response;
+use Symfony\Component\Debug\Exception\FatalErrorException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Hmvc {
@@ -80,24 +81,23 @@ class Hmvc {
 
         try
         {
-            // Store the original request data and route
+            // Store the original request data and route.
             $originalInput = $this->request->input();
-
-            // Original route.
-            //$originalRoute = $this->router->getCurrentRoute();
+            $originalRoute = $this->router->getCurrentRoute();
 
             // Masking route to allow testing with PHPUnit.
-            // if ( ! $originalRoute instanceof Route)
-            // {
-            //     $originalRoute = new Route(new \Symfony\Component\HttpFoundation\Request());
-            // }
+            if ( ! $originalRoute instanceof Route)
+            {
+                $originalRoute = new Route(new \Symfony\Component\HttpFoundation\Request());
+            }
 
-            // create a new request to the API resource
+            // Create a new request to the API resource
             $request = $this->request->create($uri, strtoupper($method), $parameters);
 
-            // replace the request input...
+            // Replace the request input...
             $this->request->replace($request->input());
 
+            // Dispatch request.
             $dispatch = $this->router->dispatch($request);
 
             if (method_exists($dispatch, 'getOriginalContent'))
@@ -118,15 +118,19 @@ class Hmvc {
                 }
             }
 
-            // replace the request input and route back to the original state
+            // Restore the request input and route back to the original state.
             $this->request->replace($originalInput);
-            //$this->router->setCurrentRoute($originalRoute);
+            $this->router->setCurrentRoute($originalRoute);
 
             return $response;
         }
         catch (NotFoundHttpException $e)
         {
             throw new HmvcNotFoundHttpException('Request Not Found.');
+        }
+        catch (FatalErrorException $e)
+        {
+            throw new HmvcFatalErrorException($e->getMessage());
         }
     }
 
