@@ -135,6 +135,29 @@ class Hmvc {
     }
 
     /**
+     * Configure remote client for http request.
+     *
+     * @param array $configuration
+     *
+     * array
+     *(
+     *   'verify' => false,                               //allows self signed certificates
+     *   'verify', '/path/to/cacert.pem',                 //custom certificate
+     *   'headers/X-Foo', 'Bar',                          //custom header
+     *   'auth', array('username', 'password', 'Digest'), //custom authentication
+     *)
+     */
+    public function configureRemoteClient($configurations)
+    {
+        foreach ($configurations as $option => $value)
+        {
+            call_user_func_array(array($this->remoteClient, 'setDefaultOption'), array($option, $value));
+        }
+
+        return $this;
+    }
+
+    /**
      * Invoke with remote request.
      *
      * @param  string $uri
@@ -142,7 +165,7 @@ class Hmvc {
      * @param  array  $parameters
      * @return mixed
      */
-    public function invokeRemote($uri, $method, $parameters = array())
+    public function invokeRemote($uri, $method = 'GET', $parameters = array())
     {
         $remoteClient = $this->getRemoteClient();
 

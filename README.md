@@ -56,6 +56,10 @@ HMVC::post('http://api.github.com', array('username' => 'teepluss'));
 // Request remote with invokeRemote.
 HMVC::invokeRemote('http://api.github.com', 'post', array('username' => 'teepluss'));
 
+// Configure remote client.
+$config = array('auth' => array('admin', 'admin'));
+echo HMVC::configureRemoteClient($config)->get('http://127.0.0.1:9200');
+
 // Get Guzzle to use other features.
 $guzzle = HMVC::getRemoteClient();
 ~~~
