@@ -65,6 +65,16 @@ class HmvcCallCommand extends Command {
 			parse_str($parameters, $parameters);
 		}
 
+		// User credentails.
+		$auth = $this->option('user');
+
+		if ($auth)
+		{
+			list ($user, $pass) = explode(':', $auth);
+
+			$this->hmvc->configureRemoteClient(array('auth' => array($user, $pass)));
+		}
+
 		$response = $this->hmvc->$invoke($url, $method, $parameters);
 
 		if ($response instanceof View)
@@ -101,7 +111,8 @@ class HmvcCallCommand extends Command {
 	{
 		return array(
 			array('request', 'X', InputOption::VALUE_OPTIONAL, 'Specifies a custom request method.', 'GET'),
-			array('data', 'd', InputOption::VALUE_OPTIONAL, 'Sends the specified data in a POST request to the HTTP server.', array())
+			array('data', 'd', InputOption::VALUE_OPTIONAL, 'Sends the specified data in a POST request to the HTTP server.', array()),
+			array('user', 'u', InputOption::VALUE_OPTIONAL, 'Pass HTTP Authentication in cURL.')
 		);
 	}
 

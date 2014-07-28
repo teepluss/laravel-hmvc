@@ -76,6 +76,9 @@ $ php artisan hmvc:call --request POST /some/form --data "name=Tee"
 
 // Remote request.
 $ php artisan hmvc:call --request GET http://google.com
+
+// Custom request.
+$ php artisan hmvc:call --request GET -u admin:admin http://localhost:9200
 ~~~
 >> also work with DELETE, PATCH, HEAD
 
