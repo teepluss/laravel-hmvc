@@ -120,7 +120,7 @@ class Hmvc {
 
             // Restore the request input and route back to the original state.
             $this->request->replace($originalInput);
-            $this->router->setCurrentRoute($originalRoute);
+            //$this->router->setCurrentRoute($originalRoute);
 
             return $response;
         }
