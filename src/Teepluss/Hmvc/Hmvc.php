@@ -172,6 +172,10 @@ class Hmvc {
         // Make request.
         $request = call_user_func_array(array($remoteClient, $method), array($uri, null, $parameters));
 
+        // Ignore all SSL case.
+        $request->getCurlOptions()->set(CURLOPT_SSL_VERIFYHOST, false);
+        $request->getCurlOptions()->set(CURLOPT_SSL_VERIFYPEER, false);
+
         // Send request.
         $response = $request->send();
 
