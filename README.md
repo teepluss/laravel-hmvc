@@ -7,7 +7,7 @@ HMVC is a tool for making internal request.
 - [HMVC on Packagist](https://packagist.org/packages/teepluss/hmvc)
 - [HMVC on GitHub](https://github.com/teepluss/laravel4-hmvc)
 
-To get the lastest version of Theme simply require it in your `composer.json` file.
+To get the lastest version of HMVC simply require it in your `composer.json` file.
 
 ~~~
 "teepluss/hmvc": "dev-master"
@@ -15,7 +15,7 @@ To get the lastest version of Theme simply require it in your `composer.json` fi
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
 
-Once Theme is installed you need to register the service provider with the application. Open up `app/config/app.php` and find the `providers` key.
+Once HMVC is installed you need to register the service provider with the application. Open up `app/config/app.php` and find the `providers` key.
 
 ~~~
 'providers' => array(
