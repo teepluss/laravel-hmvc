@@ -201,7 +201,7 @@ class Hmvc {
      */
     public function __call($method, $parameters = array())
     {
-        if (in_array($method, array('get', 'post', 'put', 'delete')))
+        if (in_array($method, array('get', 'patch', 'post', 'put', 'delete')))
         {
             $uri = array_shift($parameters);
 

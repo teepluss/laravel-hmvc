@@ -41,6 +41,9 @@ HMVC::get('user/1');
 // POST Request.
 HMVC::post('user', array('title' => 'Demo'));
 
+// PATCH Request.
+HMVC::patch('user/1', array('title' => 'Changed'));
+
 // PUT Request.
 HMVC::put('user/1', array('title' => 'Changed'));
 
