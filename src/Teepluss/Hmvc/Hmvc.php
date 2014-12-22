@@ -42,12 +42,12 @@ class Hmvc {
     /**
      * Instance Hmvc.
      *
-     * @param Repository $config  $router
-     * @param Router     $router
-     * @param Request    $request
-     * @param Client     $remote
+     * @param arary   $config
+     * @param Router  $router
+     * @param Request $request
+     * @param Client  $remote
      */
-    public function __construct(Repository $config, Router $router, Request $request, Client $remoteClient)
+    public function __construct($config, Router $router, Request $request, Client $remoteClient)
     {
         $this->config = $config;
 
