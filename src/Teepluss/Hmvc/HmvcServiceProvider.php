@@ -54,9 +54,11 @@ class HmvcServiceProvider extends ServiceProvider {
     {
         $this->app['hmvc'] = $this->app->share(function($app)
         {
+            $config = $app['config']['hmvc::config'];
+
             $remoteClient = new Client();
 
-            return new Hmvc($app['config'], $app['router'], $app['request'], $remoteClient);
+            return new Hmvc($config, $app['router'], $app['request'], $remoteClient);
         });
     }
 

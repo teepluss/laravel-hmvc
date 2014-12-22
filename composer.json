@@ -1,8 +1,8 @@
 {
     "name": "teepluss/hmvc",
-    "description": "Laravel 4 HMVC.",
+    "description": "Laravel HMVC.",
     "keywords": ["laravel", "hmvc"],
-    "homepage": "https://github.com/teepluss/laravel4-hmvc",
+    "homepage": "https://github.com/teepluss/laravel-hmvc",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -24,6 +24,11 @@
         ],
         "psr-0": {
             "Teepluss\\Hmvc": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
         }
     },
     "minimum-stability": "dev"

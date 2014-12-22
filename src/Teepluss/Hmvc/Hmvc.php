@@ -49,6 +49,8 @@ class Hmvc {
      */
     public function __construct(Repository $config, Router $router, Request $request, Client $remoteClient)
     {
+        $this->config = $config;
+
         $this->router = $router;
 
         $this->request = $request;
@@ -91,10 +93,13 @@ class Hmvc {
                 $originalRoute = new Route(new \Symfony\Component\HttpFoundation\Request());
             }
 
-            // Create a new request to the API resource
-            $request = $this->request->create($uri, strtoupper($method), $parameters);
+            $requestMethod = strtoupper($method);
 
-            // Replace the request input...
+            // Create a new request to the API resource
+            $request = $this->request->create($uri, $requestMethod, $parameters);
+
+            // Replace request method and input.
+            $this->request->setMethod($requestMethod);
             $this->request->replace($request->input());
 
             // Dispatch request.
@@ -120,7 +125,6 @@ class Hmvc {
 
             // Restore the request input and route back to the original state.
             $this->request->replace($originalInput);
-            //$this->router->setCurrentRoute($originalRoute);
 
             return $response;
         }
@@ -153,6 +157,9 @@ class Hmvc {
         {
             call_user_func_array(array($this->remoteClient, 'setDefaultOption'), array($option, $value));
         }
+
+
+        //sd($this->remoteClient);
 
         return $this;
     }
