@@ -10,7 +10,7 @@ HMVC is a tool for making internal request.
 To get the lastest version of HMVC simply require it in your `composer.json` file.
 
 ~~~
-"teepluss/hmvc": "dev-master"
+"teepluss/hmvc": "1.*@dev"
 ~~~
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
