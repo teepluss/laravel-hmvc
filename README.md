@@ -25,6 +25,16 @@ Once HMVC is installed you need to register the service provider with the applic
 )
 ~~~
 
+HMVC also ships with a facade which provides the static syntax for creating collections. You can register the facade in the `aliases` key of your `config/app.php` file.
+
+~~~
+'aliases' => [
+
+    'HMVC' => 'Teepluss\Hmvc\Facades\HMVC',
+
+]
+~~~
+
 ## Usage
 
 HMVC helping you to work with internal request.

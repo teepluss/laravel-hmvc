@@ -20,8 +20,6 @@ class HmvcServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('teepluss/hmvc');
-
         // Auto create app alias with boot method.
         $loader = AliasLoader::getInstance()->alias('HMVC', 'Teepluss\Hmvc\Facades\HMVC');
     }
@@ -54,7 +52,7 @@ class HmvcServiceProvider extends ServiceProvider {
     {
         $this->app['hmvc'] = $this->app->share(function($app)
         {
-            $config = $app['config']['hmvc::config'];
+            $config = [];
 
             $remoteClient = new Client();
 

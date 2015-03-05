@@ -22,8 +22,8 @@
         "classmap": [
             "src/Teepluss/Hmvc/Exceptions.php"
         ],
-        "psr-0": {
-            "Teepluss\\Hmvc": "src/"
+        "psr-4": {
+            "Teepluss\\Hmvc\\": "src/"
         }
     },
     "extra": {
