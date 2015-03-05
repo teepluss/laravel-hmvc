@@ -88,10 +88,10 @@ class Hmvc {
             $originalRoute = $this->router->getCurrentRoute();
 
             // Masking route to allow testing with PHPUnit.
-            if ( ! $originalRoute instanceof Route)
-            {
-                $originalRoute = new Route(new \Symfony\Component\HttpFoundation\Request());
-            }
+            // if ( ! $originalRoute instanceof Route)
+            // {
+            //     $originalRoute = new Route(new \Symfony\Component\HttpFoundation\Request());
+            // }
 
             $requestMethod = strtoupper($method);
 

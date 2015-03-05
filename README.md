@@ -80,23 +80,6 @@ $guzzle = HMVC::getRemoteClient();
 ~~~
 >> Remote request using [Guzzle](http://guzzlephp.org/) as an adapter.
 
-### Calling via artisan CLI.
-
-~~~lisp
-// Internal GET.
-$ php artisan hmvc:call --request GET /some/route?param=value
-
-// Internal POST.
-$ php artisan hmvc:call --request POST /some/form --data "name=Tee"
-
-// Remote request.
-$ php artisan hmvc:call --request GET http://google.com
-
-// Custom request.
-$ php artisan hmvc:call --request GET -u admin:admin http://localhost:9200
-~~~
->> also work with DELETE, PATCH, HEAD
-
 ## Support or Contact
 
 If you have some problem, Contact teepluss@gmail.com
