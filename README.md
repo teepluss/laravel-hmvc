@@ -5,7 +5,7 @@ HMVC is a tool for making internal request.
 ### Installation
 
 - [HMVC on Packagist](https://packagist.org/packages/teepluss/hmvc)
-- [HMVC on GitHub](https://github.com/teepluss/laravel4-hmvc)
+- [HMVC on GitHub](https://github.com/teepluss/laravel-hmvc)
 
 To get the lastest version of HMVC simply require it in your `composer.json` file.
 
