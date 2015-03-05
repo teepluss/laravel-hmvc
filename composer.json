@@ -20,7 +20,7 @@
     },
     "autoload": {
         "classmap": [
-            "src/Teepluss/Hmvc/Exceptions.php"
+            "src/Exceptions.php"
         ],
         "psr-4": {
             "Teepluss\\Hmvc\\": "src/"
