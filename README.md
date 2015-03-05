@@ -1,5 +1,7 @@
 ## Laravel HMVC.
 
+### For Laravel 4, please use the [v1.x branch](https://github.com/teepluss/laravel-hmvc/tree/v1.x)!
+
 HMVC is a tool for making internal request.
 
 ### Installation
@@ -15,7 +17,7 @@ To get the lastest version of HMVC simply require it in your `composer.json` fil
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
 
-Once HMVC is installed you need to register the service provider with the application. Open up `app/config/app.php` and find the `providers` key.
+Once HMVC is installed you need to register the service provider with the application. Open up `config/app.php` and find the `providers` key.
 
 ~~~
 'providers' => array(
